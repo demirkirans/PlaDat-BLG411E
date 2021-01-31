@@ -1,0 +1,330 @@
+
+<html>
+
+<head>
+  <title>Placement Adding Page</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+</head>
+
+<body>
+    <nav class="navbar navbar-light bg-light">
+        <!-- <div class="form">
+            <a href="http://127.0.0.1:5500/companyAddPlacement.html"> <button class="btn"><i class="fa fa-bars"></i></button></a>
+        </div> -->
+
+        <form class="form-inline" method="POST">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit" name="go-companyhomepage" value="companyhomepage"> Company Homepage</button>
+        </form>
+
+        <div class="log_out">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Log Out</button>
+        </div>
+        
+    </nav>
+     
+      
+    <div class="container bootstrap snippet">
+            
+        <div class="tab-content">
+            <div class="tab-pane active" id="placement_info">
+                <hr>
+                <form class="form" action="##" method="post" id="registrationForm">
+                    <div class="form-group">
+                        <div class="col-xs-12">
+                            <br>
+                            <h1>Placement Info (All areas must be filled.)</h1>
+                        </div>
+                    </div>
+                        <div class="form-group">
+                        <div class="col-xs-6">
+                            <label for="placement_title"><h4>Title</h4></label>
+                            <input type="text" class="form-control" name="placement_title" id="placement_title" placeholder="placement title" title="enter the placement title." required>
+                            <div class="invalid-tooltip">This area must be filled</div>
+                        </div>
+                        </div>
+                        <div class="form-group col-xs-6">
+                            <label for="category"><h4>Category</h4></label>
+                            <select id="category" name="category" class="form-control" required>
+                                <option selected disabled hidden>Choose the category...</option>
+                                <option>Backend Developer</option>
+                                <option>Frontend Developer</option>
+                                <option>Mobile Developer</option>
+                                <option>DevOps specialist</option>
+                                <option>Data Scientist</option>
+                                <option>Machine Learning Specialist</option>
+                                <option>QA Test Engineer</option>
+                                <option>IOS-DEVELOPER</option>
+                            </select>
+                            <div class="invalid-tooltip">This area must be filled</div>
+                        </div>
+                        <div class="form-group">
+                        <div class="col-xs-6">
+                            <label for="contact_email"><h4>Contact Email</h4></label>
+                            <input type="email" class="form-control" name="email" id="email" placeholder="company@email.com" title="enter your email." required>
+                            <div class="invalid-tooltip">This area must be filled</div>
+                        </div>
+                        </div>
+                        <div class="form-group">
+                        <div class="col-xs-6">
+                            <label for="location"><h4>Location</h4></label>
+                            <input type="text" class="form-control" name="location" id="location" placeholder="somewhere" title="enter a location" required>
+                            <div class="invalid-tooltip">This area must be filled</div>
+                        </div>
+                        </div>
+                        <div class="form-group">
+                        <div class="col-xs-6">
+                            <label for="salary"><h4>Salary</h4></label>
+                            <input type="number" step="1" class="form-control" name="salary" id="salary" placeholder="5000" title="enter the salary" required>
+                            <div class="invalid-tooltip">This area must be filled</div>
+                        </div>
+                        </div>
+                        <div class="form-group">
+                        <div class="col-xs-6">
+                            <label for="placement_description"><h4>Description</h4></label>
+                            <input type="text" class="form-control" name="placement_description" id="placement_description" placeholder="placement description" title="enter the description of the placement." required>
+                            <div class="invalid-tooltip">This area must be filled</div>
+                        </div>
+                        </div>
+                    
+                    <div class="form-group">
+                        <div class="col-xs-12">
+                            <br>
+                            <h1>Placement Benefits</h1>
+                        </div>
+                    </div>
+                        <div class="form-group">
+                        <div class="col-xs-6">
+                            <label for="benefits"><h4>Benefit Name</h4></label>
+                            <input type="text" class="form-control" name="benefits1" id="benefits1" placeholder="Benefit Name" title="enter a benefit." required>
+                            <div class="invalid-tooltip">This area must be filled</div>
+                        </div>
+                        </div>
+                        <div class="form-group">
+                        <div class="col-xs-6">
+                            <label for="benefits"><h4>Benefit Name</h4></label>
+                            <input type="text" class="form-control" name="benefits2" id="benefits2" placeholder="Benefit Name" title="enter a benefit if any.">
+                        </div>
+                        </div>
+                        <div class="form-group">
+                        <div class="col-xs-6">
+                            <label for="benefits"><h4>Benefit Name</h4></label>
+                            <input type="text" class="form-control" name="benefits3" id="benefits3" placeholder="Benefit Name" title="enter a benefit if any.">
+                        </div>
+                        </div>
+                        <div class="form-group">
+                        <div class="col-xs-6">
+                            <label for="benefits"><h4>Benefit Name</h4></label>
+                            <input type="text" class="form-control" name="benefits4" id="benefits4" placeholder="Benefit Name" title="enter a benefit if any.">
+                        </div>
+                        </div>
+                        <div class="form-group">
+                        <div class="col-xs-6">
+                            <label for="benefits"><h4>Benefit Name</h4></label>
+                            <input type="text" class="form-control" name="benefits5" id="benefits5" placeholder="Benefit Name" title="enter a benefit if any.">
+                        </div>
+                        </div>
+                        <div class="form-group">
+                        <div class="col-xs-6">
+                            <label for="benefits"><h4>Benefit Name</h4></label>
+                            <input type="text" class="form-control" name="benefits6" id="benefits6" placeholder="Benefit Name" title="enter a benefit if any.">
+                        </div>
+                        </div>
+                     
+                    <div class="form-group">
+                        <div class="col-xs-12">
+                            <br>
+                            <h1>Student Specifications (All areas must be filled.)</h1>
+                        </div>
+                    </div>
+                        <div class="form-group">
+                        <div class="col-xs-6">
+                            <label for="departmant_name"><h4>Department Name</h4></label>
+                            <input type="text" class="form-control" name="department_name" id="department_name" placeholder="department name" title="enter the department name." required>
+                            <div class="invalid-tooltip">This area must be filled</div>
+                        </div>
+                        </div>
+                        <div class="form-group">
+                        <div class="col-xs-6">
+                            <label for="degree"><h4>Degree</h4></label>
+                            <input type="text" class="form-control" name="degree" id="degree" placeholder="degree" title="enter desired educational degree (3. or 4. class)." required>
+                            <div class="invalid-tooltip">This area must be filled</div>
+                        </div>
+                        </div>
+
+
+                    <div class="form-group">
+                        <div class="col-xs-12">
+                            <br>
+                            <h1>Skills</h1>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-xs-12">
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" name="Cpp" id="inlineCheckbox1" value="Cpp">
+                                <label class="form-check-label" for="inlineCheckbox1">C++</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" name="Python" id="inlineCheckbox2" value="Python">
+                                <label class="form-check-label" for="inlineCheckbox2">Python</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" name="Java" id="inlineCheckbox3" value="Java" >
+                                <label class="form-check-label" for="inlineCheckbox3">Java</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" name="C (Programming Language)" id="inlineCheckbox1" value="C (Programming Language)">
+                                <label class="form-check-label" for="inlineCheckbox1">C (Programming Language)</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" name="Javascript" id="inlineCheckbox2" value="Javascript">
+                                <label class="form-check-label" for="inlineCheckbox2">Javascript</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" name="Matlab" id="inlineCheckbox3" value="Matlab" >
+                                <label class="form-check-label" for="inlineCheckbox3">Matlab</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" name="Object Oriented Programming" id="inlineCheckbox1" value="Object Oriented Programming">
+                                <label class="form-check-label" for="inlineCheckbox1">Object Oriented Programming</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" name="Android Programming" id="inlineCheckbox2" value="Android Programming">
+                                <label class="form-check-label" for="inlineCheckbox2">Android Programming</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" name="Web Programming" id="inlineCheckbox3" value="Web Programming" >
+                                <label class="form-check-label" for="inlineCheckbox3">Web Programming</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" name="Database Management" id="inlineCheckbox1" value="Database Management">
+                                <label class="form-check-label" for="inlineCheckbox1">Database Management</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" name="NodeJs" id="inlineCheckbox2" value="NodeJs">
+                                <label class="form-check-label" for="inlineCheckbox2">NodeJs</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" name="Docker" id="inlineCheckbox3" value="Docker" >
+                                <label class="form-check-label" for="inlineCheckbox3">Docker</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" name="Kubernetes" id="inlineCheckbox1" value="Kubernetes">
+                                <label class="form-check-label" for="inlineCheckbox1">Kubernetes</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" name="Linux" id="inlineCheckbox2" value="Linux">
+                                <label class="form-check-label" for="inlineCheckbox2">Linux</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" name="Go" id="inlineCheckbox3" value="Go" >
+                                <label class="form-check-label" for="inlineCheckbox3">Go</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" name="Swift" id="inlineCheckbox1" value="Swift">
+                                <label class="form-check-label" for="inlineCheckbox1">Swift</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" name="Data Structures" id="inlineCheckbox2" value="Data Structures">
+                                <label class="form-check-label" for="inlineCheckbox2">Data Structures</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" name="Artificial Intelligence" id="inlineCheckbox3" value="Artificial Intelligence" >
+                                <label class="form-check-label" for="inlineCheckbox3">Artificial Intelligence</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" name="Machine Learning" id="inlineCheckbox3" value="Machine Learning" >
+                                <label class="form-check-label" for="inlineCheckbox3">Machine Learning</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" name="Deep Learning" id="inlineCheckbox1" value="Deep Learning">
+                                <label class="form-check-label" for="inlineCheckbox1">Deep Learning</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" name="Computer Vision" id="inlineCheckbox2" value="Computer Vision">
+                                <label class="form-check-label" for="inlineCheckbox2">Computer Vision</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" name="Robotic" id="inlineCheckbox3" value="Robotic" >
+                                <label class="form-check-label" for="inlineCheckbox3">Robotic</label>
+                            </div>
+                        </div>
+                    </div>
+                    
+
+                    <div class="form-group">
+                        <div class="col-xs-12">
+                            <br>
+                            <h1>Certificate</h1>
+                        </div>
+                    </div>
+                        <div class="form-group">
+                        <div class="col-xs-6">
+                            <label for="first_name"><h4>Certificate Name</h4></label>
+                            <input type="text" class="form-control" name="certificate_name1" id="certificate_name1" placeholder="Certificate Name" title="enter your certificate name if any.">
+                        </div>
+                        </div>
+                        <div class="form-group">
+                        <div class="col-xs-6">
+                            <label for="first_name"><h4>Certificate Name</h4></label>
+                            <input type="text" class="form-control" name="certificate_name2" id="certificate_name2" placeholder="Certificate Name" title="enter your certificate name if any.">
+                        </div>
+                        </div>
+                        <div class="form-group">    
+                        <div class="col-xs-6">
+                            <label for="first_name"><h4>Certificate Name</h4></label>
+                            <input type="text" class="form-control" name="certificate_name3" id="certificate_name3" placeholder="Certificate Name" title="enter your certificate name if any.">
+                        </div>
+                        </div>
+                        <div class="form-group">
+                        <div class="col-xs-6">
+                            <label for="first_name"><h4>Certificate Name</h4></label>
+                            <input type="text" class="form-control" name="certificate_name4" id="certificate_name4" placeholder="Certificate Name" title="enter your certificate name if any.">
+                        </div>
+                        </div>
+                        <div class="form-group">
+                        <div class="col-xs-6">
+                            <label for="first_name"><h4>Certificate Name</h4></label>
+                            <input type="text" class="form-control" name="certificate_name5" id="certificate_name5" placeholder="Certificate Name" title="enter your certificate name if any.">
+                        </div>
+                        </div>
+                        <div class="form-group">
+                        <div class="col-xs-6">
+                            <label for="first_name"><h4>Certificate Name</h4></label>
+                            <input type="text" class="form-control" name="certificate_name6" id="certificate_name6" placeholder="Certificate Name" title="enter your certificate name if any.">
+                        </div>
+                        </div>
+                    
+                    <div class="form-group">
+                        <div class="col-xs-12">
+                            <br>
+                            <button class="btn btn-lg btn-success pull-right" type="submit" name="add_placement" value="save"><i class="glyphicon glyphicon-ok-sign"></i> Save</button>    
+                        </div>
+                    </div>
+
+                </form>
+
+            </div><!--/tab-pane-->
+
+        </div><!--/tab-content-->
+
+    </div><!--/tab-pane-->
+   
+            
+
+
+
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!------ Include the above in your HEAD tag ---------->
+
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!------ Include the above in your HEAD tag ---------->
+
+</body>
+</html>

@@ -1,0 +1,9 @@
+.container {
+    display: flex;
+    position: relative;
+}
+.col-5 {
+    margin-top: 10%;
+    width: 50%;
+    height: 50%;
+}

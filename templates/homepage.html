@@ -1,0 +1,171 @@
+<html >
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="./css/homePage.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+    <title>Document</title>
+</head>
+<body>
+    {%if (session['studentId'] or session['companyId'] )%}
+    <nav class="navbar navbar-light bg-light">
+      
+     
+        <!-- <div class="form">
+            <a href="http://127.0.0.1:5500/studentAddResume.html"> <button class="btn"><i class="fa fa-bars"></i></button></a>
+        </div> -->
+
+        <div class="dropdown show">
+          <label for="">Menu</label>
+            <a class="fa fa-bars" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"></a>
+          
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+              <a class="dropdown-item" href="{{url_for('addresume')}}">Add Resume</a>
+              <a class="dropdown-item" href="{{url_for('updateresume')}}">Update Resume</a>
+              <a class="dropdown-item" href="{{url_for('deleteresume')}}">Delete Resume</a>
+              <a class="dropdown-item" href="{{url_for('/', passwordChange=session['studentId'])}}">Password Change</a>
+            </div>
+          </div>
+
+        
+        <form class="form-inline " method="POST">
+          <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="search-button">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+          
+        </form>
+        <div class="row">
+        <div class="dropdown show">
+            <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Search by Category
+            </a>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                <a class="dropdown-item" href="{{url_for('homepage',category='Backend Developer')}}">Backend Developer</a>
+                <a class="dropdown-item" href="{{url_for('homepage',category='Frontend Developer')}}">Frontend Developer</a>
+                <a class="dropdown-item" href="{{url_for('homepage',category='Mobile Developer')}}">Mobile Developer</a>
+                <a class="dropdown-item" href="{{url_for('homepage',category='DevOps specialist')}}">DevOps specialist</a>
+                <a class="dropdown-item" href="{{url_for('homepage',category='Game Developer')}}">Game Developer</a>
+                <a class="dropdown-item" href="{{url_for('homepage',category='Data Scientist')}}">Data Scientist</a>
+                <a class="dropdown-item" href="{{url_for('homepage',category='Machine Learning Specialist')}}">Machine Learning Specialist</a>
+                <a class="dropdown-item" href="{{url_for('homepage',category='QA Test Engineer')}}">QA Test Engineer</a>
+                <a class="dropdown-item" href="{{url_for('homepage',category='IOS-DEVELOPER')}}">IOS-Developer</a>
+            </div>
+          </div>
+          
+          
+            <div class="col">
+              <div class="dropdown">
+                  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Sort by Locations
+                  </button>
+                  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                      <a class="dropdown-item" href="{{url_for('homepage',location='Istanbul')}}">Istanbul</a>
+                      <a class="dropdown-item" href="{{url_for('homepage',location='Ankara')}}">Ankara</a>
+                      <a class="dropdown-item" href="{{url_for('homepage',location='Bursa')}}">Bursa</a>
+                      <a class="dropdown-item" href="{{url_for('homepage',location='Izmir')}}">Izmir</a>
+                  </div>
+                </div>
+
+            </div>
+            <div class="col">
+              <div class="dropdown">
+                  <form method="GET">
+                    <button type="submit" name="date"class="btn btn-info">Sort by Date</button>
+                  </form>
+                  
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="log_out">
+            <a class="btn btn-outline-success my-2 my-sm-0" href="{{url_for('logOut')}}" role="button">Log Out</a>
+          </div>
+      </nav>
+      
+     
+      <section class="pt-5 pb-5">
+        <div class="container">
+          <div class="row">
+              <div class="col-6">
+                  
+            
+                  <h3 class="mb-3">Profilin ile eşleşen iş ilanları </h3>
+              </div>
+              <div class="col-12">
+                  <div id="carouselExampleIndicators2" class="carousel slide" data-ride="carousel">
+      
+                      <div class="carousel-inner">
+                          <div class="carousel-item active">
+                              <div class="col">
+                                {%if context =="Unknown Error. Try again" %}
+                                <div class="alert alert-danger" role="alert">
+                                    {{context}}
+                                </div>
+                                {%endif%}
+                                {%if context !="Unknown Error. Try again" and context !=403 and context%}
+                                {% for row in context%}
+                                <div class="row-md-4 mb-3">
+                                    <div class="card">
+                                        
+                                        <div class="card-body">
+                                            <h4 class="card-title">{{row['Company_name']}}</h4>
+                                            <p class="card-text">Job Title:{{row['title']}}</p>
+                                            <p class="card-text">Job Discriptions: {{row['description']}}</p>
+                                            <p class="card-text">Skills:
+                                            {%for item in row['Skills']%}
+                                             {{item['name']}}     
+                                            {%endfor%}
+                                            </p>
+                                            <p class="card-text">Department Name: {{row['department_name']}}</p>
+                                            <p class="card-text">Degree: {{row['degree']}}</p>
+                                            <p class="card-text">Locations: {{row['location']}}</p>
+                                            <p class="card-text">certificate:
+                                            {% for item in row['Certificates']%}
+                                                {{item['name']}}
+                                            {%endfor%}
+                                             </p>
+                                            <p class="card-text">Contact Info: {{row['contact_info']}}.</p>
+                                            <p class="card-text">Benefit:
+                                            {%for item in row['Benefits']%}
+                                             {{item['name']}}
+                                            {%endfor%}
+                                            </p>
+                                            <p class="card-text">Salary:{{row['salaries']}}$</p>
+                                            <button type="button-sm" class="btn btn-success">Apply</button>
+                                        </div>
+                                        
+    
+                                    </div>
+                                </div>
+                                {%endfor%}
+                                {%endif%}
+
+                              </div>
+                            
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+      </section>
+      {%else%}
+      <div class="alert alert-danger" role="alert">
+        unauthorized user
+      </div>
+      {%endif%}
+
+      
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+<link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+
+</body>
+</html>

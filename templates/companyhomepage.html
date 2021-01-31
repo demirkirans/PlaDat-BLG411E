@@ -1,0 +1,119 @@
+<html >
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="./css/homePage.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+    <title>Company Homepage</title>
+</head>
+<body>
+    {%if (session['studentId'] or session['companyId'] )%}
+    <nav class="navbar navbar-light bg-light">
+        <!-- <div class="form">
+            <a href="http://127.0.0.1:5500/studentAddResume.html"> <button class="btn"><i class="fa fa-bars"></i></button></a>
+        </div> -->
+
+        <div class="dropdown show">
+            <a class="fa fa-bars" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"></a>
+          
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+              <a class="dropdown-item" href="{{url_for('addplacement')}}">Add Placement</a>
+              <a class="dropdown-item" href="{{url_for('/', passwordChange=session['companyId'])}}">Password Change</a>
+            </div>
+        </div>
+
+        <div class="log_out">
+            <a class="btn btn-outline-success my-2 my-sm-0" href="{{url_for('logOut')}}" role="button">Log Out</a>
+          </div>
+    </nav>
+      
+     
+    <section class="pt-5 pb-5">
+        <div class="container">
+          <div class="row">
+              <div class="col-6">         
+                  <h3 class="mb-3">Placements </h3>
+              </div>
+
+              <div class="col-12">
+                  <div id="carouselExampleIndicators2" class="carousel slide" data-ride="carousel">
+      
+                      <div class="carousel-inner">
+                          <div class="carousel-item active">
+                              <div class="col">
+                                {%if context == "Unknown Error. Try again" %}
+                                <div class="alert alert-danger" role="alert">
+                                    {{context}}
+                                </div>
+                                {%endif%}
+                                {%if context !="Unknown Error. Try again" and context !=403 and context and context != " "%}
+                                {% for row in context%}
+                                <div class="row-md-4 mb-3">
+                                    <div class="card bg-light mb-3">
+                                        <div class="card-header">{{row['Company_name']}}</div>
+                                        <div class="card-body">
+                                            <h4 class="card-title">{{row['title']}}</h4>
+                                            <p class="card-text"><strong>Placement Description: </strong>{{row['description']}}</p>
+                                            <p class="card-text"><strong>Skills: </strong>
+                                            {%for item in row['skills']%}
+                                                #{{item}}
+                                            {%endfor%}
+                                            </p>
+                                            <p class="card-text"><strong>Department Name: </strong>{{row['department_name']}}</p>
+                                            <p class="card-text"><strong>Degree: </strong>{{row['degree']}}</p>
+                                            <p class="card-text"><strong>Location: </strong>{{row['location']}}</p>
+                                            <p class="card-text"><strong>Certificates:</strong>
+                                            {% for item in row['certificates']%}
+                                                #{{item}}
+                                            {%endfor%} 
+                                            </p>
+                                            <p class="card-text"><strong>Contact Information: </strong>{{row['contact_info']}}.</p>
+                                            <p class="card-text"><strong>Benefits: </strong>
+                                            {%for item in row['benefits']%}
+                                                #{{item}}
+                                            {%endfor%}
+                                            </p>
+                                            <p class="card-text"><strong>Salary: </strong>{{row['salaries']}}$</p>
+                              
+                                                <div class="form-group">
+                                                <div class="col-xs-12">
+                                                    <a class="btn btn-lg btn btn-danger pull-right" href="{{url_for('deleteplacement', p_id=row['Placement_ID'])}}" role="button">Delete</a>                                            
+                                                    <a class="btn btn-lg btn-success pull-right" href="{{url_for('updateplacement',p_id=row['Placement_ID'])}}" role="button">Update</a>
+                                                </div>
+                                                </div>
+                                             
+                                        </div>
+                                         
+                                    </div>
+                                </div>
+                                {%endfor%}
+                                {%endif%}
+                                {%if context == " "%}
+                                <h4 class="card-title">You have not added a placement yet. You can use Add Placement on Hamburger button.</h4>
+                                {%endif%}
+                              </div>
+                            
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+   </section>
+    {%else%}
+    <div class="alert alert-danger" role="alert">
+    unauthorized user
+    </div>
+    {%endif%}
+
+      
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+
+</body>
+</html>
