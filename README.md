@@ -9,3 +9,7 @@ This project will create a matching service to connect placement students with p
 ## Description
 
 Placements with employers play a valuable role in the learning journey for software engineering and computing students. Placement students are paid a salary and benefit from support and mentoring towards working on live production projects. Different terminology is used in different countries. Placements are sometimes called “paid internships” or “work experience.” 
+
+## Contributors
+
+Mert Kahvecioğlu, Emre Kaydu, Alper Meriç, Gamze Tuncay
